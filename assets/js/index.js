@@ -29,7 +29,6 @@ var experienceLink = document.querySelector("#experienceLink");
 var testimonialsLink = document.querySelector("#testimonialsLink");
 var contactLink = document.querySelector("#contactLink");
 
-
 var carousel = document.getElementById("testimonials-carousel");
 var nextBtn = document.getElementById("next-testimonial");
 var prevBtn = document.getElementById("prev-testimonial");
@@ -90,18 +89,20 @@ function changeTheme(index) {
 }
 
 function updateCarousel() {
-  
   var cardWidth = cards[0].offsetWidth;
   var translateValue = index * cardWidth;
-  
+
   carousel.style.transform = "translateX(" + translateValue + "px)";
   for (var i = 0; i < indicators.length; i++) {
-    indicators[i].classList.add("dark:bg-slate-600","active","bg-accent");
+    indicators[i].classList.add("dark:bg-slate-600", "active", "bg-accent");
   }
-  
-  console.log(cards)
-  indicators[index].classList.remove("dark:bg-slate-600","active","bg-accent");
 
+  console.log(cards);
+  indicators[index].classList.remove(
+    "dark:bg-slate-600",
+    "active",
+    "bg-accent",
+  );
 }
 
 // * =================<Events >>==============
@@ -1488,7 +1489,6 @@ for (let i = 0; i < testimonialCards.length; i++) {
   });
 }
 nextBtn.addEventListener("click", function () {
-
   index++;
 
   if (index >= total) {
@@ -1496,11 +1496,9 @@ nextBtn.addEventListener("click", function () {
   }
 
   updateCarousel();
-
 });
 
 prevBtn.addEventListener("click", function () {
-
   index--;
 
   if (index < 0) {
@@ -1508,26 +1506,18 @@ prevBtn.addEventListener("click", function () {
   }
 
   updateCarousel();
-
 });
 for (var i = 0; i < indicators.length; i++) {
-
   indicators[i].addEventListener("click", function () {
-
     index = Number(this.getAttribute("data-index"));
 
     updateCarousel();
-
   });
-
 }
 window.addEventListener("scroll", function () {
-
   if (scrollY >= aboutSection.offsetTop) {
     scrollTopBtn.classList.remove("opacity-0", "invisible");
   } else {
     scrollTopBtn.classList.add("opacity-0", "invisible");
   }
-
 });
-
